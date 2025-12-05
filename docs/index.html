@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="QiMeng-Kernel: Macro-Thinking Micro-Coding Paradigm for LLM-Based High-Performance GPU Kernel Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QiMeng-Kernel</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <!-- highlight code -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    /* 图片悬浮效果 */
+    img {
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">QiMeng-Kernel: Macro-Thinking Micro-Coding Paradigm for LLM-Based
+              High-Performance GPU Kernel Generation</h1>
+
+            <div class="is-size-5 publication-authors" style="margin-top: 1.5rem;">
+              <span class="author-block">
+                <a>Xinguo Zhu</a><sup>1,3,4</sup>,</span>
+              <span class="author-block">
+                <a>Shaohui Peng</a><sup>1,4</sup>,</span>
+              <span class="author-block">
+                <a>Jiaming Guo</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Yunji Chen</a><sup>2,4</sup>,
+              </span>
+              <span class="author-block">
+                <a>Qi Guo</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Yuanbo Wen</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Hang Qin</a><sup>1,3,4</sup>,
+              </span>
+              <span class="author-block">
+                <a>Ruizhi Chen</a><sup>1,4</sup>,
+              </span>
+              <span class="author-block">
+                <a>Qirui Zhou</a><sup>2,4</sup>,
+              </span>
+              <span class="author-block">
+                <a>Ke Gao</a><sup>1,4</sup>,
+              </span>
+              <span class="author-block">
+                <a>Yanjun Wu</a><sup>1,4</sup>,
+              </span>
+              <span class="author-block">
+                <a>Chen Zhao</a><sup>1,4</sup>,
+              </span>
+              <span class="author-block">
+                <a>Ling Li</a><sup>1,4</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors" style="margin-top: 1rem; margin-bottom: 2rem;">
+              <span class="author-block"><sup>1</sup>Intelligent Software Research Center, Institute of Software, CAS,
+                Beijing, China</span><br>
+              <span class="author-block"><sup>2</sup>State Key Lab of Processors, Institute of Computing Technology,
+                CAS, Beijing, China</span><br>
+              <span class="author-block"><sup>3</sup>Hangzhou Institute for Advanced Study, UCAS, Hangzhou,
+                China</span><br>
+              <span class="author-block"><sup>4</sup>University of Chinese Academy of Sciences</span><br>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2511.20100" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/AKatydid/QiMeng-Kernel"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="margin-bottom: 2rem;">Overview</h2>
+          <div class="content has-text-justified">
+            Developing high-performance GPU kernels is critical for AI and scientific computing, but remains challenging
+            due to its reliance on expert crafting and poor portability. While LLMs offer promise for automation, both
+            general-purpose and finetuned LLMs suffer from two fundamental and conflicting limitations: correctness and
+            efficiency. The key reason is that existing LLM-based approaches directly generate the entire optimized
+            low-level programs, requiring exploration of an extremely vast space encompassing both optimization policies
+            and implementation codes.
+            <br />
+            To address the challenge of exploring an intractable space, we propose Macro Thinking Micro Coding (MTMC), a
+            hierarchical framework inspired by the staged optimization strategy of human experts. It decouples
+            optimization strategy from implementation details, ensuring efficiency through high-level strategy and
+            correctness through low-level implementation. Specifically, Macro Thinking employs reinforcement learning to
+            guide lightweight LLMs in efficiently exploring and learning semantic optimization strategies that maximize
+            hardware utilization. Micro Coding leverages general-purpose LLMs to incrementally implement the stepwise
+            optimization proposals from Macro Thinking, avoiding full-kernel generation errors. Together, they
+            effectively navigate the vast optimization space and intricate implementation details, enabling LLMs for
+            high-performance GPU kernel generation. Comprehensive results on widely adopted benchmarks demonstrate the
+            superior performance of MTMC on GPU kernel generation in both accuracy and running time. On KernelBench,
+            MTMC achieves near 100% and 70% accuracy at Levels 1-2 and 3, over 50% than SOTA general-purpose and
+            domain-finetuned LLMs, with up to 7.3x speedup over LLMs, and 2.2x over expert-optimized PyTorch Eager
+            kernels. On the more challenging TritonBench, MTMC attains up to 59.64% accuracy and 34x speedup.
+          </div>
+          <div class="has-text-centered" style="margin: 3rem 0;">
+            <img src="./static/images/overview.png">
+          </div>
+          <div class="content has-text-justified">
+            <p style="line-height: 1.6;">
+              The overview of MTMC framework. The framework takes unoptimized PyTorch code as input and generates
+              high-performance GPU kernels with hierarchical process: Macro Thinking generates semantic optimization
+              actions, while Micro Coding implements them step-by-step. The optimization policy based on lightweight
+              LLMs is trained with RL on compact human-craft dataset.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Overview. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+
+      <div class="container content is-max-desktop">
+        <h2 class="title is-3" style="margin-bottom: 2rem;"> BibTex </h2>
+        <pre style="margin-top: 1rem;">
+@article{zhu2025qimeng,
+  title={QiMeng-Kernel: Macro-Thinking Micro-Coding Paradigm for LLM-Based High-Performance GPU Kernel Generation},
+  author={Zhu, Xinguo and Peng, Shaohui and Guo, Jiaming and Chen, Yunji and Guo, Qi and Wen, Yuanbo and Qin, Hang and Chen, Ruizhi and Zhou, Qirui and Gao, Ke and others},
+  journal={arXiv preprint arXiv:2511.20100},
+  year={2025}
+}
+        </pre>
+      </div>
+      <!-- </section> -->
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Thanks for the website template <a href="https://nerfies.github.io">Nerfies</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
