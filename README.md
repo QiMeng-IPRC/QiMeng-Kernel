@@ -6,7 +6,7 @@
   <a href="https://arxiv.org/abs/2511.20100">
     <img
       src="https://img.shields.io/badge/Paper-Arxiv-red?logo=arxiv&logoColor=red"
-      alt="MuSL Paper on arXiv"
+      alt="QiMeng-Kernel Paper on arXiv"
     />
   </a>
 </p>
