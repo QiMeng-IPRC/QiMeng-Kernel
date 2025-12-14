@@ -44,22 +44,75 @@
   <script src="./static/js/index.js"></script>
 
   <style>
-    /* 图片悬浮效果 */
     img {
       transition: all 0.3s ease;
       border-radius: 8px;
     }
 
-    img:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    .result-image:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       cursor: pointer;
+    }
+
+    .bibtex-container {
+      position: relative;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    pre {
+      background-color: transparent !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      white-space: pre-wrap;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #4a4a4a;
+    }
+
+    .copy-btn:hover {
+      background-color: #363636;
+      color: #fff;
+      border-color: #363636;
+    }
+
+    .copy-btn.copied {
+      background-color: #48c774;
+      color: white;
+      border-color: #48c774;
+    }
+
+    .result-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    
+    .result-caption {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #363636;
     }
   </style>
 </head>
 
 <body>
-
 
   <section class="hero">
     <div class="hero-body">
@@ -109,7 +162,7 @@
               </span>
             </div>
 
-            <div class="is-size-5 publication-authors" style="margin-top: 1rem; margin-bottom: 2rem;">
+            <div class="is-size-5 publication-authors" style="margin-top: 1rem; margin-bottom: 2rem; font-size: 0.9rem !important;">
               <span class="author-block"><sup>1</sup>Intelligent Software Research Center, Institute of Software, CAS,
                 Beijing, China</span><br>
               <span class="author-block"><sup>2</sup>State Key Lab of Processors, Institute of Computing Technology,
@@ -154,34 +207,40 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3" style="margin-bottom: 2rem;">Overview</h2>
-          <div class="content has-text-justified">
-            Developing high-performance GPU kernels is critical for AI and scientific computing, but remains challenging
-            due to its reliance on expert crafting and poor portability. While LLMs offer promise for automation, both
-            general-purpose and finetuned LLMs suffer from two fundamental and conflicting limitations: correctness and
-            efficiency. The key reason is that existing LLM-based approaches directly generate the entire optimized
-            low-level programs, requiring exploration of an extremely vast space encompassing both optimization policies
-            and implementation codes.
-            <br />
-            To address the challenge of exploring an intractable space, we propose Macro Thinking Micro Coding (MTMC), a
-            hierarchical framework inspired by the staged optimization strategy of human experts. It decouples
-            optimization strategy from implementation details, ensuring efficiency through high-level strategy and
-            correctness through low-level implementation. Specifically, Macro Thinking employs reinforcement learning to
-            guide lightweight LLMs in efficiently exploring and learning semantic optimization strategies that maximize
-            hardware utilization. Micro Coding leverages general-purpose LLMs to incrementally implement the stepwise
-            optimization proposals from Macro Thinking, avoiding full-kernel generation errors. Together, they
-            effectively navigate the vast optimization space and intricate implementation details, enabling LLMs for
-            high-performance GPU kernel generation. Comprehensive results on widely adopted benchmarks demonstrate the
-            superior performance of MTMC on GPU kernel generation in both accuracy and running time. On KernelBench,
-            MTMC achieves near 100% and 70% accuracy at Levels 1-2 and 3, over 50% than SOTA general-purpose and
-            domain-finetuned LLMs, with up to 7.3x speedup over LLMs, and 2.2x over expert-optimized PyTorch Eager
-            kernels. On the more challenging TritonBench, MTMC attains up to 59.64% accuracy and 34x speedup.
+          
+          <div class="box has-background-light" style="box-shadow: none; background-color: #fcfcfc;">
+            <div class="content has-text-justified">
+              Developing high-performance GPU kernels is critical for AI and scientific computing, but remains challenging
+              due to its reliance on expert crafting and poor portability. While LLMs offer promise for automation, both
+              general-purpose and finetuned LLMs suffer from two fundamental and conflicting limitations: correctness and
+              efficiency. The key reason is that existing LLM-based approaches directly generate the entire optimized
+              low-level programs, requiring exploration of an extremely vast space encompassing both optimization policies
+              and implementation codes.
+              <br /><br />
+              To address the challenge of exploring an intractable space, we propose <strong>Macro Thinking Micro Coding (MTMC)</strong>, a
+              hierarchical framework inspired by the staged optimization strategy of human experts. It decouples
+              optimization strategy from implementation details, ensuring efficiency through high-level strategy and
+              correctness through low-level implementation. Specifically, Macro Thinking employs reinforcement learning to
+              guide lightweight LLMs in efficiently exploring and learning semantic optimization strategies that maximize
+              hardware utilization. Micro Coding leverages general-purpose LLMs to incrementally implement the stepwise
+              optimization proposals from Macro Thinking, avoiding full-kernel generation errors. Together, they
+              effectively navigate the vast optimization space and intricate implementation details, enabling LLMs for
+              high-performance GPU kernel generation. 
+              <br /><br />
+              Comprehensive results on widely adopted benchmarks demonstrate the
+              superior performance of MTMC on GPU kernel generation in both accuracy and running time. On KernelBench,
+              MTMC achieves near 100% and 70% accuracy at Levels 1-2 and 3, over 50% than SOTA general-purpose and
+              domain-finetuned LLMs, with up to 7.3x speedup over LLMs, and 2.2x over expert-optimized PyTorch Eager
+              kernels. On the more challenging TritonBench, MTMC attains up to 59.64% accuracy and 34x speedup.
+            </div>
           </div>
+
           <div class="has-text-centered" style="margin: 3rem 0;">
-            <img src="./static/images/overview.png">
+            <img src="./static/images/overview.png" class="result-image" style="max-width: 100%; height: auto;">
           </div>
-          <div class="content has-text-justified">
-            <p style="line-height: 1.6;">
-              The overview of MTMC framework. The framework takes unoptimized PyTorch code as input and generates
+          <div class="content has-text-justified is-size-6">
+            <p style="line-height: 1.6; color: #555;">
+              <strong>Figure 1:</strong> The overview of MTMC framework. The framework takes unoptimized PyTorch code as input and generates
               high-performance GPU kernels with hierarchical process: Macro Thinking generates semantic optimization
               actions, while Micro Coding implements them step-by-step. The optimization policy based on lightweight
               LLMs is trained with RL on compact human-craft dataset.
@@ -193,22 +252,58 @@
     </div>
   </section>
 
+  <section class="section" style="background-color: #fefefe;">
+    <!-- Results -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="margin-bottom: 2.5rem;">Results</h2>
+          
+          <!-- Result 1 -->
+          <div class="result-card">
+            <div class="result-caption">Results on KernelBench</div>
+            <div class="has-text-centered">
+              <img src="./static/images/result-kernelbenchv0.png" class="result-image">
+            </div>
+          </div>
+
+          <!-- Result 2 -->
+          <div class="result-card">
+            <div class="result-caption">Results on TritonBench</div>
+            <div class="has-text-centered">
+              <img src="./static/images/result-tritonbench.png" class="result-image">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container is-max-desktop">
-
-
-      <div class="container content is-max-desktop">
-        <h2 class="title is-3" style="margin-bottom: 2rem;"> BibTex </h2>
-        <pre style="margin-top: 1rem;">
-@article{zhu2025qimeng,
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Citation</h2>
+          
+          <div class="bibtex-container">
+            <button class="copy-btn" onclick="copyBibtex()">
+              <span class="icon is-small">
+                <i class="far fa-copy"></i>
+              </span>
+              <span>Copy</span>
+            </button>
+            <pre><code class="language-bibtex" id="bibtex-content">@article{zhu2025qimeng,
   title={QiMeng-Kernel: Macro-Thinking Micro-Coding Paradigm for LLM-Based High-Performance GPU Kernel Generation},
   author={Zhu, Xinguo and Peng, Shaohui and Guo, Jiaming and Chen, Yunji and Guo, Qi and Wen, Yuanbo and Qin, Hang and Chen, Ruizhi and Zhou, Qirui and Gao, Ke and others},
   journal={arXiv preprint arXiv:2511.20100},
   year={2025}
-}
-        </pre>
+}</code></pre>
+          </div>
+
+        </div>
       </div>
-      <!-- </section> -->
+    </div>
   </section>
 
 
@@ -216,20 +311,41 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
-          <div class="content">
+          <div class="content has-text-centered">
             <p>
               This website is licensed under a <a rel="license"
                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
                 Commons Attribution-ShareAlike 4.0 International License</a>.
             </p>
             <p>
-              Thanks for the website template <a href="https://nerfies.github.io">Nerfies</a>
+              Thanks for the website template <a href="https://nerfies.github.io">Nerfies</a>.
             </p>
           </div>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- JavaScript for Copy Functionality -->
+  <script>
+    function copyBibtex() {
+      const bibtexContent = document.getElementById('bibtex-content').innerText;
+      navigator.clipboard.writeText(bibtexContent).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const originalText = btn.innerHTML;
+        
+        btn.classList.add('copied');
+        btn.innerHTML = '<span class="icon is-small"><i class="fas fa-check"></i></span><span>Copied!</span>';
+        
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<span class="icon is-small"><i class="far fa-copy"></i></span><span>Copy</span>';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    }
+  </script>
 
 </body>
 
