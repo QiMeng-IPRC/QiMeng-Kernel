@@ -17,7 +17,7 @@ Please note that this repository is still under active development. We will rele
 
 ## Methods
 <p align="center">
-  <img src="./docs/static/images//overview.png" alt="Overview" width="80%" />
+  <img src="./docs/static/images/overview.png" alt="Overview" width="80%" />
 </p>
 
 ### Main results
