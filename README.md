@@ -73,12 +73,13 @@ bash scripts/train.sh \
 
 ## Citation
 ```bibtex
-@article{zhu2025qimeng,
-  title={QiMeng-Kernel: Macro-Thinking Micro-Coding Paradigm for LLM-Based High-Performance GPU Kernel Generation},
-  author={Zhu, Xinguo and Peng, Shaohui and Guo, Jiaming and Chen, Yunji and Guo, Qi and Wen, Yuanbo and Qin, Hang and Chen, Ruizhi and Zhou, Qirui and Gao, Ke and others},
-  journal={arXiv preprint arXiv:2511.20100},
-  year={2025}
+@misc{zhu2025qimengkernelmacrothinkingmicrocodingparadigm,
+  title={QiMeng-Kernel: Macro-Thinking Micro-Coding Paradigm for LLM-Based High-Performance GPU Kernel Generation}, 
+  author={Xinguo Zhu and Shaohui Peng and Jiaming Guo and Yunji Chen and Qi Guo and Yuanbo Wen and Hang Qin and Ruizhi Chen and Qirui Zhou and Ke Gao and Yanjun Wu and Chen Zhao and Ling Li},
+  year={2025},
+  eprint={2511.20100},
+  archivePrefix={arXiv},
+  primaryClass={cs.DC},
+  url={https://arxiv.org/abs/2511.20100}
 }
 ```
-
-

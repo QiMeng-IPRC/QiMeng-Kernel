@@ -1,0 +1,28 @@
+# virtual environment
+.venv/
+venv/
+env/
+
+# pycache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# installed packages
+*.dist-info/
+*.egg-info/
+
+# profiling data
+*.nsys-rep
+*.ncu-rep
+
+# .vscode
+.vscode/
+.coverage
+
+# clangd config
+.clangd
+
+# json files
+*.json
+*.jsonl
