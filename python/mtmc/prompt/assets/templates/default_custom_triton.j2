@@ -1,0 +1,26 @@
+{% import "common.j2" as common %}
+{{ common.PROBLEM_STATEMENT }}
+
+{% if example_src and example_new_src %}
+Here's an example to show you the syntax of inline embedding custom Triton operators in torch: The example given architecture is: 
+
+``` 
+{{ example_src }}
+``` 
+
+The example new arch with custom Triton kernels looks like this: 
+```
+{{ example_new_src }}
+``` 
+{% endif %}
+
+You are given the following architecture: 
+
+```
+{{ problem_src }}
+```
+{{ common.TRITON_API_FIX }}
+If using the tl.dot API, please set `allow_tf32=False` for precision accuracy, tl.dot(A, B, allow_tf32=False)
+
+{{ common.PROBLEM_INSTRUCTION }}
+{{ common.NO_DO_INSTRUCTION }}

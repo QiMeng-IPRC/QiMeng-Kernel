@@ -1,0 +1,17 @@
+{% import "common.j2" as common %}
+{{ common.PROBLEM_STATEMENT }}
+
+With the following architecture:
+```
+{{ ref_arch_src }}
+```
+You generated the following solution and it failed to compile:
+```
+{{ custom_triton }}
+```
+Here's the metadata of the compilation error:
+```
+{{ metadata }}
+```
+
+Please fix the compilation error in the new model code. Please output the corrected code in codeblocks. {{ common.NO_DO_INSTRUCTION }}

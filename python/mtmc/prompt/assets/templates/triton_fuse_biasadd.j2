@@ -1,0 +1,23 @@
+{% import "common.j2" as common %}
+You write custom Triton kernels to replace the PyTorch operators in the given architecture for inference acceleration. 
+
+You are given the following architecture: 
+```
+{{ ref_arch_src }}
+```
+
+The current solution: 
+```
+{{ custom_triton }}
+```
+
+Your task: fuse the selected operators in current solution by using triton
+```
+{{ area }}
+```
+Please refer to the following instructions for implementation: 
+{{ spec }}
+
+{{ common.TRITON_API_FIX }}
+Optimize the architecture named Model with custom Triton operators! Name your optimized output architecture ModelNew. Output the new code in codeblocks.
+{{ common.NO_DO_INSTRUCTION }}

@@ -1,0 +1,31 @@
+{% set PROBLEM_STATEMENT %}
+You write custom Triton kernels to replace the pytorch operators in the given architecture to get speedups. 
+
+You have complete freedom to choose the set of operators you want to replace. You may make the decision to replace some operators with custom Triton kernels and leave others unchanged. You may replace multiple operators with custom implementations, consider operator fusion opportunities (combining multiple operators into a single kernel, for example, combining matmul+relu), or algorithmic changes (such as online softmax). You are only limited by your imagination.
+{% endset %}
+
+{% set PROBLEM_INSTRUCTION %}
+Optimize the architecture named Model with custom Triton operators! Name your optimized output architecture ModelNew. Output the new code in codeblocks.
+{% endset %}
+
+{% set NO_DO_INSTRUCTION %}
+Please generate real code, NOT pseudocode, No code omitted, make sure the code compiles and is fully functional. Just output the new model code, NO assert code, and NO testing code! 
+{% endset %}
+
+{% set TRITON_API_HINT %}
+When you write custom Triton Kernel, DO NOT use the following wrong APIs:
+- DO NOT use "tl.relu", NO "tl.relu", NO "tl.math.relu", write it by '(tl.exp(2.0 * x) - 1) / (tl.exp(2.0 * x) + 1)'
+- DO NOT use "tl.tanh", NO "tl.tanh", NO "tl.math.tanh"
+- DO NOT use "tl.conv2d", NO "tl.conv2d", NO "tl.math.conv2d"
+- DO NOT use "tl.static_alloc", NO "tl.static_alloc"
+- DO NOT use "tl.inf", NO "tl.inf". NO "tl.math.inf"
+- DO NOT use "tl.unpack", NO "tl.unpack"
+- DO NOT use "tl.num_program_ids", NO "tl.num_program_ids" API
+- DO NOT use "tl.libdevice", NO "tl.libdevice" API
+- DO NOT use "tl.mean", NO "tl.mean", NO "tl.math.mean"
+- DO NOT use "tl.mul", NO "tl.mul", NO "tl.math.mul"
+{% endset %}
+
+{% set TRITON_API_FIX %}
+When you write custom Triton kernels, please follow the current Triton API and set `allow_tf32=False` for `tl.dot` calls when precision matters.
+{% endset %}

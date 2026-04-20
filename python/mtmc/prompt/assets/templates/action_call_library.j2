@@ -1,0 +1,20 @@
+{% import "common.j2" as common %}
+You are given the following architecture: 
+```
+{{ ref_arch_src }}
+```
+
+The current solution: 
+```
+{{ custom_triton }}
+```
+
+Your task: replace the following operators with library functions (such as nn.functional and PyTorch interfaces) in the current solution.
+```
+{{ area }}
+```
+
+{{ translate }}
+
+Name your optimized output architecture ModelNew. Output the new code in codeblocks.
+{{ common.NO_DO_INSTRUCTION }}
