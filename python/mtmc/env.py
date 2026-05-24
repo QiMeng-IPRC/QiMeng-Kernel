@@ -58,7 +58,7 @@ EnvMem = partial(EnvVar[int], fn=_PARSE_MEM_BYTES)
 class EnvClassSingleton:
     _instance: EnvClassSingleton | None = None
 
-    # inference
+    # default inference args in MTMC
     INFERENCE_MAX_TOKENS = EnvInt(4096)
     INFERENCE_TOP_K = EnvInt(-1)
     INFERENCE_TOP_P = EnvFloat(1.0)

@@ -32,8 +32,8 @@ def prompt_generate_custom_cuda(
 
 
 def prompt_default_custom_triton(problem_src: str) -> str:
-    example_src = _read_text(EXAMPLE_DIR / "model_ex_add.py")
-    example_new_src = _read_text(EXAMPLE_DIR / "model_new_ex_add.py")
+    example_src = _read_text(EXAMPLE_DIR / "model_ex_add_triton.py")
+    example_new_src = _read_text(EXAMPLE_DIR / "model_new_ex_add_triton.py")
     return _render(
         "default_custom_triton.j2",
         problem_src=problem_src,
